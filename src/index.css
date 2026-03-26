@@ -1,0 +1,35 @@
+/* Import design tokens first */
+@import './design-system/tokens.css';
+@import './design-system/typography.css';
+
+/* ── Reset / Base ── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-fg-primary);
+  background-color: var(--color-bg);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}

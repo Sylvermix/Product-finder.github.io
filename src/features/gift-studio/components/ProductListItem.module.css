@@ -1,0 +1,116 @@
+.root {
+  border-bottom: var(--border-width-thin) solid var(--color-border-default);
+  animation: fadeUp 0.4s ease-out both;
+  animation-delay: var(--delay, 0ms);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.imageArea {
+  overflow: hidden;
+  background: var(--color-muted);
+}
+
+.mainImg {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.root:hover .mainImg {
+  transform: scale(1.02);
+}
+
+.body {
+  padding: var(--spacing-4) var(--spacing-5);
+}
+
+.nameRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-3);
+}
+
+.name {
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-primary);
+  line-height: 1.35;
+}
+
+.price {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-fg-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.colorRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1-5);
+  margin-bottom: var(--spacing-3);
+}
+
+.swatch {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  border: var(--border-width-thin) solid rgba(0, 0, 0, 0.14);
+  flex-shrink: 0;
+}
+
+.moreColors {
+  font-size: var(--font-size-caption);
+  color: var(--color-fg-tertiary);
+}
+
+.descLink {
+  display: inline-block;
+  background: none;
+  border: none;
+  border-bottom: var(--border-width-default) solid var(--color-fg-primary);
+  padding: 0 0 var(--spacing-0-5);
+  font-size: var(--font-size-body-sm);
+  color: var(--color-fg-primary);
+  cursor: pointer;
+  font-family: var(--font-family);
+  text-align: left;
+  margin-bottom: var(--spacing-4);
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: center;
+}
+
+.heart {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-fg-primary);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.heart.heartLiked {
+  color: var(--color-accent-red);
+}
+
+.heart:active {
+  transform: scale(1.35);
+}

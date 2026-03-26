@@ -1,0 +1,190 @@
+.root {
+  user-select: none;
+  padding-bottom: var(--spacing-6);
+}
+
+/* ── 3-D Carousel ── */
+.carousel {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+  cursor: grab;
+  perspective: 900px;
+  touch-action: pan-y;
+  background: var(--color-surface);
+}
+
+.carousel:active {
+  cursor: grabbing;
+}
+
+.item {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 72%;
+  height: 100%;
+  will-change: transform, opacity;
+}
+
+.itemImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--color-muted);
+  display: block;
+  pointer-events: none;
+}
+
+/* ── Thumbnails ── */
+.thumbStrip {
+  display: flex;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-5);
+  overflow-x: auto;
+  scrollbar-width: none;
+  justify-content: center;
+}
+
+.thumbStrip::-webkit-scrollbar {
+  display: none;
+}
+
+.thumb {
+  flex: 0 0 52px;
+  height: 52px;
+  border: var(--border-width-default) solid var(--color-border-default);
+  overflow: hidden;
+  background: var(--color-muted);
+  cursor: pointer;
+}
+
+.thumb.thumbActive {
+  border-color: var(--color-fg-primary);
+  border-width: var(--border-width-thick);
+}
+
+.thumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Dots ── */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-1-5);
+  padding: 0 0 var(--spacing-4);
+}
+
+.dot {
+  height: 6px;
+  width: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-emphasis);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s ease, width 0.2s ease;
+}
+
+.dot.dotActive {
+  background: var(--color-fg-primary);
+  width: 20px;
+}
+
+/* ── Product info ── */
+.info {
+  padding: 0 var(--spacing-5);
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.infoLeft {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-fg-primary);
+  margin: 0 0 var(--spacing-3) 0;
+  line-height: 1.35;
+}
+
+.priceCol {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-2);
+}
+
+.price {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-fg-primary);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.colorRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1-5);
+  margin-bottom: var(--spacing-3);
+}
+
+.swatch {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  border: var(--border-width-thin) solid rgba(0, 0, 0, 0.14);
+  flex-shrink: 0;
+}
+
+.moreColors {
+  font-size: var(--font-size-caption);
+  color: var(--color-fg-tertiary);
+}
+
+.descLink {
+  display: inline-block;
+  background: none;
+  border: none;
+  border-bottom: var(--border-width-default) solid var(--color-fg-primary);
+  padding: 0 0 1px;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-fg-primary);
+  cursor: pointer;
+  font-family: var(--font-family);
+  text-align: left;
+}
+
+.heart {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-fg-primary);
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.heart.heartLiked {
+  color: var(--color-accent-red);
+}
+
+.heart:active {
+  transform: scale(1.35);
+}

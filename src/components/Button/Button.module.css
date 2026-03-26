@@ -1,0 +1,74 @@
+/* ============================================================
+   Button — DS-AI
+   Figma: https://www.figma.com/design/CVNmGt7NvV58jNCoqcvins/DS-AI
+   Node: General > Button (11:892)
+   Variants: Primary | Secondary  ×  Default | Hover | Disabled
+   ============================================================ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  min-width: 100px;
+  padding: var(--spacing-1-5) var(--spacing-3);
+  border: var(--border-width-default) solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family);
+  font-size: var(--font-size-label-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-label-sm);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  user-select: none;
+}
+
+/* --- Primary --- */
+
+.primary {
+  background-color: var(--color-accent-brand);
+  border-color: var(--color-accent-brand);
+  color: var(--color-white);
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--color-accent-green);
+  border-color: var(--color-accent-green);
+}
+
+.primary:disabled,
+.primary.disabled {
+  background-color: var(--color-border-strong);
+  border-color: var(--color-border-strong);
+  color: var(--color-border-strong);
+  cursor: not-allowed;
+}
+
+/* --- Secondary --- */
+
+.secondary {
+  background-color: var(--color-white);
+  border-color: var(--color-accent-brand);
+  color: var(--color-black);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: var(--color-border-strong);
+  border-color: var(--color-accent-brand);
+}
+
+.secondary:disabled,
+.secondary.disabled {
+  background-color: var(--color-white);
+  border-color: var(--color-border-strong);
+  color: var(--color-border-strong);
+  cursor: not-allowed;
+}
+
+/* --- Full width modifier --- */
+
+.fullWidth {
+  width: 100%;
+}

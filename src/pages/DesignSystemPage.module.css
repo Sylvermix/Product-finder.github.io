@@ -1,0 +1,304 @@
+.page {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  padding: var(--spacing-8) var(--spacing-8) var(--spacing-16);
+  font-family: var(--font-family);
+  color: var(--color-fg-primary);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+
+.header {
+  margin-bottom: var(--spacing-12);
+}
+
+.pageTitle {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-h2);
+  margin: 0 0 var(--spacing-2);
+  color: var(--color-fg-primary);
+}
+
+.pageSubtitle {
+  font-size: var(--font-size-body);
+  color: var(--color-fg-secondary);
+  margin: 0;
+}
+
+.pageSubtitle a {
+  color: var(--color-accent-brand);
+  text-decoration: underline;
+}
+
+/* ── Section ── */
+
+.section {
+  margin-bottom: var(--spacing-12);
+  background-color: var(--color-surface);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-6) var(--spacing-8);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-h5);
+  color: var(--color-fg-primary);
+  margin: 0 0 var(--spacing-3);
+}
+
+.sectionDivider {
+  height: 1px;
+  background-color: var(--color-border-default);
+  margin-bottom: var(--spacing-6);
+}
+
+/* ── Color palette ── */
+
+.palette {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.paletteRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.paletteName {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-secondary);
+}
+
+.paletteSwatches {
+  display: flex;
+  gap: var(--spacing-1);
+}
+
+.paletteCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.paletteColor {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: var(--border-width-default) solid rgba(0, 0, 0, 0.06);
+}
+
+.paletteStep {
+  font-size: 9px;
+  color: var(--color-fg-tertiary);
+}
+
+/* ── Semantic token groups ── */
+
+.tokenGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-5);
+}
+
+.tokenGroupLabel {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-secondary);
+  margin: 0;
+}
+
+.tokenRow {
+  display: flex;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.swatchColor {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  border: var(--border-width-default) solid rgba(0, 0, 0, 0.06);
+}
+
+.swatchName {
+  font-size: 9px;
+  color: var(--color-fg-tertiary);
+  text-align: center;
+  max-width: 60px;
+  word-break: break-all;
+}
+
+.swatchSub {
+  font-size: 8px;
+  color: var(--color-fg-tertiary);
+}
+
+/* ── Typography ── */
+
+.typeScale {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.typeRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-4);
+}
+
+.typeSpec {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 180px;
+  flex-shrink: 0;
+}
+
+.typeName {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-secondary);
+}
+
+.typeMeta {
+  font-size: 10px;
+  color: var(--color-fg-tertiary);
+}
+
+.typeSample {
+  font-family: var(--font-family);
+  color: var(--color-fg-primary);
+}
+
+/* ── Spacing ── */
+
+.spacingGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.spacingRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.spacingKey {
+  font-size: var(--font-size-caption);
+  color: var(--color-fg-secondary);
+  min-width: 30px;
+}
+
+.spacingValue {
+  font-size: var(--font-size-caption);
+  color: var(--color-fg-tertiary);
+  min-width: 40px;
+}
+
+.spacingBar {
+  height: 16px;
+  background-color: var(--color-accent-brand);
+  border-radius: 2px;
+  min-width: 2px;
+}
+
+/* ── Border width ── */
+
+.borderWidthGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.borderWidthRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.borderWidthName {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-secondary);
+  min-width: 60px;
+}
+
+.borderWidthValue {
+  font-size: var(--font-size-caption);
+  color: var(--color-fg-tertiary);
+  min-width: 50px;
+}
+
+.borderWidthLine {
+  flex: 1;
+}
+
+/* ── Shadows ── */
+
+.shadowGrid {
+  display: flex;
+  gap: var(--spacing-6);
+  flex-wrap: wrap;
+}
+
+.shadowCard {
+  width: 96px;
+  height: 64px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: var(--spacing-2);
+}
+
+.shadowLabel {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-secondary);
+}
+
+/* ── Components ── */
+
+.componentGroup {
+  margin-bottom: var(--spacing-5);
+}
+
+.componentVariantLabel {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-secondary);
+  margin: 0 0 var(--spacing-3);
+}
+
+.componentRow {
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Force-show hover state for preview */
+.hoverPreview {
+  background-color: var(--color-accent-green) !important;
+  border-color: var(--color-accent-green) !important;
+}

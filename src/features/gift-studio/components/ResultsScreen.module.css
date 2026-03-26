@@ -1,0 +1,115 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--color-surface);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-4) var(--spacing-5);
+  border-bottom: var(--border-width-thin) solid var(--color-border-default);
+  flex-shrink: 0;
+}
+
+.headerSide {
+  width: 32px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.headerTitle {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.1em;
+  color: var(--color-fg-primary);
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  padding: var(--spacing-1);
+  cursor: pointer;
+  color: var(--color-fg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Hero ── */
+.hero {
+  padding: var(--spacing-5) var(--spacing-5) var(--spacing-4);
+  animation: fadeUp 0.4s ease-out both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.heroTitle {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-fg-primary);
+  line-height: var(--line-height-h2);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ── Tabs ── */
+.tabBar {
+  display: flex;
+  border-bottom: var(--border-width-thin) solid var(--color-border-default);
+  flex-shrink: 0;
+}
+
+.tab {
+  flex: 1;
+  padding: var(--spacing-3) var(--spacing-2);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  font-size: var(--font-size-label-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.05em;
+  color: var(--color-fg-tertiary);
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.tab.tabActive {
+  color: var(--color-fg-primary);
+  border-bottom-color: var(--color-fg-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ── Delivery badges ── */
+.badges {
+  display: flex;
+  gap: var(--spacing-5);
+  padding: var(--spacing-3) var(--spacing-5);
+  border-bottom: var(--border-width-thin) solid var(--color-border-default);
+  flex-shrink: 0;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-caption);
+  color: var(--color-fg-secondary);
+}
+
+/* ── Scrollable content ── */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}

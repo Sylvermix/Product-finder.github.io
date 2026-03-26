@@ -1,0 +1,93 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--spacing-6);
+}
+
+.title {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-fg-primary);
+  line-height: var(--line-height-h2);
+  padding: var(--spacing-6) var(--spacing-5) var(--spacing-5);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ── Large value display ── */
+.valueDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-10) var(--spacing-5) var(--spacing-12);
+}
+
+.value {
+  font-size: 80px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent-green);
+  line-height: 1;
+  font-family: var(--font-family);
+  transition: color 0.15s ease;
+  letter-spacing: -0.02em;
+}
+
+/* ── Ruler ── */
+.rulerContainer {
+  position: relative;
+  overflow: hidden;
+  height: 76px;
+  cursor: ew-resize;
+  user-select: none;
+  touch-action: none;
+}
+
+.centerLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 44px;
+  width: 2px;
+  background: var(--color-accent-green);
+  transform: translateX(-1px);
+  z-index: 2;
+}
+
+.track {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  display: flex;
+  align-items: flex-start;
+  padding-top: var(--spacing-2);
+}
+
+.tickUnit {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.tick {
+  width: 1px;
+  height: 14px;
+  background: var(--color-fg-disabled);
+}
+
+.tick.tickMajor {
+  height: 26px;
+  background: var(--color-fg-tertiary);
+  width: 1px;
+}
+
+.tickLabel {
+  margin-top: var(--spacing-1-5);
+  font-size: 10px;
+  color: var(--color-fg-tertiary);
+  font-family: var(--font-family);
+  user-select: none;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  display: block;
+}

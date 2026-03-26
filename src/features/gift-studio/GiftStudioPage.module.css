@@ -1,0 +1,33 @@
+.root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--color-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone {
+  width: 100%;
+  max-width: 390px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--color-surface);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xl);
+}
+
+@media (max-width: 430px) {
+  .root {
+    background: var(--color-surface);
+    align-items: flex-start;
+  }
+
+  .phone {
+    max-width: 100%;
+    box-shadow: none;
+  }
+}
