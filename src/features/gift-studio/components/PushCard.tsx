@@ -7,7 +7,7 @@ interface PushCardProps {
 }
 
 export function PushCard({ onStart }: PushCardProps) {
-  const gridProducts = allProducts.slice(0, 12)
+  const gridProducts = allProducts.slice(3, 12)
 
   return (
     <div className={styles.root}>
