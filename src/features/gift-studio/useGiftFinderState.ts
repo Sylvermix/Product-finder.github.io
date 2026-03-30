@@ -16,11 +16,20 @@ function computeResults(answers: QuizAnswers): { selected: Product[]; more: Prod
   return { selected: all.slice(0, 8), more: all.slice(8) }
 }
 
+function getInitialState() {
+  const hash = new URLSearchParams(window.location.hash.slice(1))
+  const s = hash.get('screen') as AppScreen | null
+  const st = parseInt(hash.get('step') ?? '1', 10)
+  return { screen: s ?? 'push', step: isNaN(st) ? 1 : st }
+}
+
 export function useGiftFinderState() {
-  const [screen, setScreen] = useState<AppScreen>('push')
-  const [step, setStep] = useState(1)
+  const init = getInitialState()
+  const [screen, setScreen] = useState<AppScreen>(init.screen)
+  const [step, setStep] = useState(init.step)
   const [direction, setDirection] = useState<TransitionDirection>('forward')
-  const [answers, setAnswers] = useState<QuizAnswers>({
+  const demoAnswers: QuizAnswers = { recipient: 'man', productType: 'sweatshirts', occasion: 'Birthday', style: 'chic', interests: ['Sports', 'Golf'], budget: 150 }
+  const [answers, setAnswers] = useState<QuizAnswers>(init.screen === 'results' ? demoAnswers : {
     recipient: '',
     productType: '',
     occasion: '',
@@ -28,10 +37,9 @@ export function useGiftFinderState() {
     interests: [],
     budget: 120,
   })
-  const [results, setResults] = useState<{ selected: Product[]; more: Product[] }>({
-    selected: [],
-    more: [],
-  })
+  const [results, setResults] = useState<{ selected: Product[]; more: Product[] }>(
+    init.screen === 'results' ? computeResults(demoAnswers) : { selected: [], more: [] }
+  )
 
   const startQuiz = useCallback(() => {
     setDirection('forward')

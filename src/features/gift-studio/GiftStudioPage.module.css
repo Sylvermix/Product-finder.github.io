@@ -14,7 +14,8 @@
   min-height: 100dvh;
   background: var(--color-surface);
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-xl);
