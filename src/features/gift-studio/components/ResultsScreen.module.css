@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
   background: var(--color-surface);
 }
 
@@ -43,7 +41,8 @@
 
 /* ── Hero ── */
 .hero {
-  padding: var(--spacing-5) var(--spacing-5) var(--spacing-4);
+  flex-shrink: 0;
+  padding: 15px var(--spacing-5);
   animation: fadeUp 0.4s ease-out both;
 }
 
@@ -70,7 +69,7 @@
 
 .tab {
   flex: 1;
-  padding: var(--spacing-3) var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-2) 14px;
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
@@ -93,7 +92,8 @@
 /* ── Delivery badges ── */
 .badges {
   display: flex;
-  gap: var(--spacing-5);
+  justify-content: center;
+  gap: 60px;
   padding: var(--spacing-3) var(--spacing-5);
   border-bottom: var(--border-width-thin) solid var(--color-border-default);
   flex-shrink: 0;
@@ -110,6 +110,7 @@
 /* ── Scrollable content ── */
 .content {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }

@@ -137,7 +137,7 @@ export function WheelCarousel({ products }: WheelCarouselProps) {
           fullWidth
           style={{ height: '52px', fontSize: '13px', letterSpacing: '0.06em', borderRadius: '0' }}
         >
-          Select your size &nbsp;∨
+          SELECT YOUR SIZE &nbsp;›
         </Button>
       </div>
     </div>

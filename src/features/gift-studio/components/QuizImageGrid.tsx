@@ -7,16 +7,14 @@ interface Option {
 }
 
 interface QuizImageGridProps {
-  title: string
   options: Option[]
   selected: string
   onSelect: (id: string) => void
 }
 
-export function QuizImageGrid({ title, options, selected, onSelect }: QuizImageGridProps) {
+export function QuizImageGrid({ options, selected, onSelect }: QuizImageGridProps) {
   return (
     <div className={styles.root}>
-      <h2 className={styles.title}>{title}</h2>
       <div className={styles.grid}>
         {options.map(opt => (
           <button

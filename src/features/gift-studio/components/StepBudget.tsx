@@ -49,8 +49,6 @@ export function StepBudget({ value, onChange }: StepBudgetProps) {
 
   return (
     <div className={styles.root}>
-      <h2 className={styles.title}>HOW MUCH DO YOU WANT TO SPEND?</h2>
-
       <div className={styles.valueDisplay}>
         <span className={styles.value}>{value} €</span>
       </div>

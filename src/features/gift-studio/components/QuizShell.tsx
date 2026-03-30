@@ -19,6 +19,14 @@ interface QuizShellProps {
   onUpdateAnswer: <K extends keyof QuizAnswers>(key: K, value: QuizAnswers[K]) => void
 }
 
+const STEP_TITLES = [
+  'WHO ARE YOU SHOPPING FOR?',
+  'WHAT PRODUCT ARE YOU LOOKING FOR?',
+  'HOW WOULD YOU DEFINE HIS STYLE?',
+  'WHAT OCCASION ARE YOU SHOPPING FOR?',
+  'HOW MUCH DO YOU WANT TO SPEND?',
+]
+
 const U = 'https://images.unsplash.com/photo-'
 const P = '?w=400&h=520&fit=crop&auto=format&q=80'
 
@@ -47,7 +55,6 @@ export function QuizShell({
       case 1:
         return (
           <QuizImageGrid
-            title="WHO ARE YOU SHOPPING FOR?"
             options={STEP_1_OPTIONS}
             selected={answers.recipient}
             onSelect={v => onUpdateAnswer('recipient', v)}
@@ -56,7 +63,6 @@ export function QuizShell({
       case 2:
         return (
           <QuizImageGrid
-            title="WHAT PRODUCT ARE YOU LOOKING FOR?"
             options={STEP_2_OPTIONS}
             selected={answers.productType}
             onSelect={v => onUpdateAnswer('productType', v)}
@@ -93,7 +99,6 @@ export function QuizShell({
   return (
     <div className={styles.root}>
       <header className={styles.header}>
-        <div className={styles.headerSide} />
         <span className={styles.headerTitle}>GIFT STUDIO</span>
         <div className={styles.headerSide}>
           <button className={styles.iconBtn} onClick={onClose} aria-label="Close">
@@ -109,6 +114,8 @@ export function QuizShell({
         <div className={styles.progressFill} style={{ width: `${progress}%` }} />
       </div>
 
+      <div className={styles.stepTitle}>{STEP_TITLES[step - 1]}</div>
+
       <div
         key={step}
         className={`${styles.content} ${direction === 'forward' ? styles.enterRight : styles.enterLeft}`}
@@ -116,7 +123,7 @@ export function QuizShell({
         {renderStep()}
       </div>
 
-      <footer className={styles.footer}>
+      <footer className={`${styles.footer} ${isLastStep ? styles.footerLast : ''}`}>
         {!isLastStep && (
           <button className={styles.skipBtn} onClick={onSkip}>
             Skip the quiz
@@ -124,12 +131,14 @@ export function QuizShell({
         )}
         <div className={styles.footerNav}>
           {step > 1 && (
-            <button className={styles.backSquare} onClick={onBack} aria-label="Previous">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12" />
-                <polyline points="12 19 5 12 12 5" />
-              </svg>
-            </button>
+            <Button
+              variant="secondary"
+              onClick={onBack}
+              aria-label="Previous"
+              style={{ height: '48px', width: '48px', minWidth: 0, fontSize: '16px', borderRadius: '0', padding: '0' }}
+            >
+              ←
+            </Button>
           )}
           <Button
             variant="primary"

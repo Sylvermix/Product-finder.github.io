@@ -7,7 +7,7 @@ interface PushCardProps {
 }
 
 export function PushCard({ onStart }: PushCardProps) {
-  const gridProducts = allProducts.slice(3, 12)
+  const gridProducts = allProducts.slice(0, 12)
 
   return (
     <div className={styles.root}>
@@ -33,7 +33,7 @@ export function PushCard({ onStart }: PushCardProps) {
         <p className={styles.subtitle}>
           Find the perfect gifts for your beloved ones in a few simple steps
         </p>
-        <Button variant="primary" fullWidth onClick={onStart} style={{ flex: '1', height: 'auto', fontSize: '13px', letterSpacing: '0.1em', borderRadius: '0' }}>
+        <Button variant="primary" fullWidth onClick={onStart} style={{ height: '48px', fontSize: '13px', letterSpacing: '0.1em', borderRadius: '0' }}>
           FIND THE PERFECT GIFT &nbsp;→
         </Button>
       </div>

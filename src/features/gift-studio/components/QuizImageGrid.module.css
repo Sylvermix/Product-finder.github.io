@@ -1,15 +1,4 @@
 .root {
-  padding-top: var(--spacing-6);
-}
-
-.title {
-  font-size: var(--font-size-h2);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-fg-primary);
-  line-height: var(--line-height-h2);
-  padding: 0 var(--spacing-5) var(--spacing-5);
-  margin: 0;
-  text-transform: uppercase;
 }
 
 .grid {
@@ -75,11 +64,9 @@
 .label {
   display: block;
   padding: var(--spacing-2) var(--spacing-3);
-  font-size: var(--font-size-body-sm);
+  font-size: var(--font-size-label);
   font-weight: var(--font-weight-medium);
   color: var(--color-fg-primary);
   background: var(--color-surface);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  line-height: 20px;
+  line-height: 21px;
 }

@@ -15,7 +15,6 @@ export function ResultsScreen({ results, onClose }: ResultsScreenProps) {
   return (
     <div className={styles.root}>
       <header className={styles.header}>
-        <div className={styles.headerSide} />
         <span className={styles.headerTitle}>GIFT STUDIO</span>
         <div className={styles.headerSide}>
           <button className={styles.iconBtn} onClick={onClose} aria-label="Close">
@@ -28,7 +27,7 @@ export function ResultsScreen({ results, onClose }: ResultsScreenProps) {
       </header>
 
       <div className={styles.hero}>
-        <h1 className={styles.heroTitle}>WE FOUND THE PERFECT GIFTS FOR YOU!</h1>
+        <h1 className={styles.heroTitle}>WE FOUND PERFECT GIFTS FOR YOU!</h1>
       </div>
 
       <div className={styles.tabBar}>
@@ -46,23 +45,22 @@ export function ResultsScreen({ results, onClose }: ResultsScreenProps) {
         </button>
       </div>
 
-      <div className={styles.badges}>
-        <span className={styles.badge}>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M5 8h14M5 8a2 2 0 1 0 0-4h-1M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8M14 8V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4" />
-          </svg>
-          Delivered in 3 days
-        </span>
-        <span className={styles.badge}>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="1 4 1 10 7 10" />
-            <path d="M3.51 15a9 9 0 1 0 .49-4.9" />
-          </svg>
-          30 Days to return
-        </span>
-      </div>
-
       <div className={styles.content}>
+        <div className={styles.badges}>
+          <span className={styles.badge}>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 8h14M5 8a2 2 0 1 0 0-4h-1M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8M14 8V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4" />
+            </svg>
+            Delivered in 3 days
+          </span>
+          <span className={styles.badge}>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="1 4 1 10 7 10" />
+              <path d="M3.51 15a9 9 0 1 0 .49-4.9" />
+            </svg>
+            30 Days to return
+          </span>
+        </div>
         {activeTab === 'selected' ? (
           <div key="selected">
             {results.selected.map((product, i) => (

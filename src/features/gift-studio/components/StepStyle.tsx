@@ -32,8 +32,6 @@ export function StepStyle({ style, interests, onStyleChange, onInterestsChange }
 
   return (
     <div className={styles.root}>
-      <h2 className={styles.title}>HOW WOULD YOU DEFINE HIS STYLE?</h2>
-
       <div className={styles.styleTrack}>
         {STYLE_OPTIONS.map(opt => (
           <button

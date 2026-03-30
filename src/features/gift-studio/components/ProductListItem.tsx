@@ -42,13 +42,6 @@ export function ProductListItem({ product, index }: ProductListItemProps) {
         <button className={styles.descLink}>Full Description &nbsp;›</button>
 
         <div className={styles.actions}>
-          <Button
-            variant="primary"
-            fullWidth
-            style={{ height: '48px', fontSize: '12px', letterSpacing: '0.08em', borderRadius: '0' }}
-          >
-            ADD TO YOUR BAG
-          </Button>
           <button
             className={`${styles.heart} ${liked ? styles.heartLiked : ''}`}
             onClick={() => setLiked(l => !l)}
@@ -58,6 +51,13 @@ export function ProductListItem({ product, index }: ProductListItemProps) {
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
           </button>
+          <Button
+            variant="primary"
+            fullWidth
+            style={{ height: '48px', fontSize: '12px', letterSpacing: '0.08em', borderRadius: '0' }}
+          >
+            ADD TO YOUR BAG
+          </Button>
         </div>
       </div>
     </article>

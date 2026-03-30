@@ -10,7 +10,6 @@ const OPTIONS = ['Birthday', 'Anniversary', "Valentine's day", 'Graduation', 'Ot
 export function StepOccasion({ selected, onSelect }: StepOccasionProps) {
   return (
     <div className={styles.root}>
-      <h2 className={styles.title}>FOR WHAT OCCASION ARE YOU SHOPPING FOR?</h2>
       <ul className={styles.list}>
         {OPTIONS.map(opt => (
           <li key={opt}>

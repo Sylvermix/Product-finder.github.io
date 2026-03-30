@@ -10,12 +10,11 @@
 .phone {
   width: 100%;
   max-width: 390px;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
   background: var(--color-surface);
   position: relative;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-xl);

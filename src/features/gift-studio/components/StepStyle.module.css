@@ -2,16 +2,6 @@
   padding-bottom: var(--spacing-6);
 }
 
-.title {
-  font-size: var(--font-size-h2);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-fg-primary);
-  line-height: var(--line-height-h2);
-  padding: var(--spacing-6) var(--spacing-5) var(--spacing-5);
-  margin: 0;
-  text-transform: uppercase;
-}
-
 /* ── Style horizontal scroll ── */
 .styleTrack {
   display: flex;
