@@ -56,11 +56,14 @@
 /* ── Step title ── */
 .stepTitle {
   flex-shrink: 0;
-  padding: 15px var(--spacing-5);
-  font-size: var(--font-size-h3);
+  height: 60px;
+  padding: 0 var(--spacing-5);
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-h4);
   font-weight: var(--font-weight-semibold);
   color: var(--color-fg-primary);
-  line-height: var(--line-height-h3);
+  line-height: 25px;
   text-transform: uppercase;
 }
 
