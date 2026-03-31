@@ -6,18 +6,19 @@ interface WheelCarouselProps {
   products: Product[]
 }
 
-const ANGLE_STEP    = 0.72   // radians between adjacent items
-const DRAG_RATIO    = 0.009  // radians per pixel dragged
+const ANGLE_STEP    = 1.05   // radians between adjacent items
+const DRAG_RATIO    = 0.004  // radians per pixel dragged
 const FRICTION      = 0.87   // velocity decay per frame (inertia)
 
 /** Position each item on the arc using sin/cos — true wheel geometry */
 function computeStyle(angle: number): React.CSSProperties | null {
-  if (Math.abs(angle) > ANGLE_STEP * 2.3) return null
+  if (Math.abs(angle) > ANGLE_STEP * 1.4) return null
   const cos  = Math.cos(angle)
   const sin  = Math.sin(angle)
   const norm = Math.max(0, cos)
+  const yPx  = cos * 100 - 50
   return {
-    transform: `translateX(calc(-50% + ${sin * 54}%)) translateY(${(1 - cos) * -55}px) scale(${0.35 + 0.83 * Math.pow(norm, 3)})`,
+    transform: `translateX(calc(-50% + ${sin * 72}%)) translateY(${yPx}px) scale(${0.35 + 0.83 * Math.pow(norm, 3)})`,
     opacity:   0.3 + 0.7 * norm,
     zIndex:    Math.round(norm * 10),
   }
@@ -25,7 +26,6 @@ function computeStyle(angle: number): React.CSSProperties | null {
 
 export function WheelCarousel({ products }: WheelCarouselProps) {
   const [rotation, setRotation] = useState(0)   // continuous wheel angle (radians)
-  const [liked,    setLiked]    = useState<Set<string>>(new Set())
   const [snapping, setSnapping] = useState(false)
 
   const isDragging = useRef(false)
@@ -65,14 +65,14 @@ export function WheelCarousel({ products }: WheelCarouselProps) {
     if (!isDragging.current) return
     velRef.current = e.clientX - lastX.current
     lastX.current  = e.clientX
-    setRotation(clamp(startRot.current - (e.clientX - startX.current) * DRAG_RATIO))
+    setRotation(clamp(startRot.current + (e.clientX - startX.current) * DRAG_RATIO))
   }
 
   function handlePointerUp() {
     if (!isDragging.current) return
     isDragging.current = false
 
-    let vel = -velRef.current * DRAG_RATIO   // initial angular velocity
+    let vel = velRef.current * DRAG_RATIO   // initial angular velocity
 
     const spin = () => {
       vel *= FRICTION
@@ -90,14 +90,6 @@ export function WheelCarousel({ products }: WheelCarouselProps) {
       rafRef.current = requestAnimationFrame(spin)
     }
     rafRef.current = requestAnimationFrame(spin)
-  }
-
-  function toggleLike(id: string) {
-    setLiked(prev => {
-      const next = new Set(prev)
-      next.has(id) ? next.delete(id) : next.add(id)
-      return next
-    })
   }
 
   if (!active) return null
@@ -150,26 +142,9 @@ export function WheelCarousel({ products }: WheelCarouselProps) {
       <div className={styles.info}>
         <div className={styles.infoLeft}>
           <h3 className={styles.name}>{active.name}</h3>
-          <div className={styles.colorRow}>
-            {active.colors.slice(0, 4).map(c => (
-              <span key={c} className={styles.swatch} style={{ background: c }} />
-            ))}
-            {active.colors.length > 4 && (
-              <span className={styles.moreColors}>+{active.colors.length - 4}</span>
-            )}
-          </div>
         </div>
         <div className={styles.priceCol}>
           <span className={styles.price}>{active.price},00 €</span>
-          <button
-            className={`${styles.heart} ${liked.has(active.id) ? styles.heartLiked : ''}`}
-            onClick={() => toggleLike(active.id)}
-            aria-label="Add to wishlist"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill={liked.has(active.id) ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-            </svg>
-          </button>
         </div>
       </div>
     </div>
