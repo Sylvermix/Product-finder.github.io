@@ -91,18 +91,6 @@ export function WheelCarousel({ products }: WheelCarouselProps) {
         ))}
       </div>
 
-      {/* Dot indicators */}
-      <div className={styles.dots}>
-        {Array.from({ length: Math.min(products.length, 5) }, (_, i) => (
-          <button
-            key={i}
-            className={`${styles.dot} ${i === activeIndex % 5 ? styles.dotActive : ''}`}
-            onClick={() => setActiveIndex(i)}
-            aria-label={`Product ${i + 1}`}
-          />
-        ))}
-      </div>
-
       {/* Product info */}
       <div className={styles.info}>
         <div className={styles.infoLeft}>

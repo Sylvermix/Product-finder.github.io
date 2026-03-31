@@ -119,9 +119,5 @@
 }
 
 .footerLast {
-  justify-content: center;
-}
-
-.footerLast .footerNav {
-  margin-left: 0;
+  justify-content: flex-end;
 }
