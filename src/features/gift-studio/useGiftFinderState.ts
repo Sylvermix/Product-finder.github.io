@@ -1,19 +1,14 @@
 import { useState, useCallback } from 'react'
 import type { QuizAnswers, Product } from './types'
-import { allProducts } from './data/products'
+import { allProducts, extraProducts } from './data/products'
 
 export type AppScreen = 'push' | 'quiz' | 'results'
 export type TransitionDirection = 'forward' | 'back'
 
 const TOTAL_STEPS = 5
 
-function computeResults(answers: QuizAnswers): { selected: Product[]; more: Product[] } {
-  const sorted = [...allProducts].sort((a, b) => b.matchScore - a.matchScore)
-  const ceiling = answers.budget * 1.2
-  const within = sorted.filter(p => p.price <= ceiling)
-  const over = sorted.filter(p => p.price > ceiling)
-  const all = [...within, ...over]
-  return { selected: all.slice(0, 8), more: all.slice(8) }
+function computeResults(_answers: QuizAnswers): { selected: Product[]; more: Product[] } {
+  return { selected: allProducts.slice(0, 4), more: extraProducts }
 }
 
 function getInitialState() {

@@ -7,14 +7,11 @@ interface StepStyleProps {
   onInterestsChange: (interests: string[]) => void
 }
 
-const U = 'https://images.unsplash.com/photo-'
-const P = '?w=300&h=500&fit=crop&auto=format&q=80'
-
 const STYLE_OPTIONS = [
-  { id: 'sporty', label: 'Sporty', image: `${U}1571019613454-1cb2f99b2d8b${P}` },
-  { id: 'chic',   label: 'Chic',   image: `${U}1509631179647-0177331693ae${P}` },
-  { id: 'casual', label: 'Casual', image: `${U}1490481651871-ab68de25d43d${P}` },
-  { id: 'smart',  label: 'Smart',  image: `${U}1617137984095-74e4e5e3613f${P}` },
+  { id: 'sporty', label: 'Sporty', image: '/assets/looks/look1.png' },
+  { id: 'chic',   label: 'Chic',   image: '/assets/looks/look2.png' },
+  { id: 'casual', label: 'Casual', image: '/assets/looks/look3.png' },
+  { id: 'trendy', label: 'Trendy', image: '/assets/looks/look4.png' },
 ]
 
 const INTEREST_OPTIONS = [
@@ -36,7 +33,7 @@ export function StepStyle({ style, interests, onStyleChange, onInterestsChange }
         {STYLE_OPTIONS.map(opt => (
           <button
             key={opt.id}
-            className={`${styles.styleCard} ${style === opt.id ? styles.styleSelected : ''}`}
+            className={`${styles.styleCard} ${style && style !== opt.id ? styles.styleUnselected : ''}`}
             onClick={() => onStyleChange(opt.id)}
           >
             <div className={styles.styleImgWrap}>
@@ -48,7 +45,7 @@ export function StepStyle({ style, interests, onStyleChange, onInterestsChange }
       </div>
 
       <div className={styles.interests}>
-        <h3 className={styles.interestsTitle}>WHAT ARE HIS INTERESTS?</h3>
+        <h3 className={styles.interestsTitle}>What are his interests?</h3>
         <div className={styles.tags}>
           {INTEREST_OPTIONS.map(tag => (
             <button

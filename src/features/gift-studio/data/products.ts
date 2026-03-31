@@ -45,71 +45,89 @@ const PA = {
   f: `${U}1612817288484-6f916006741a${Q}`, // slim chino
 }
 
+// ── Extra assets (MORE GIFTS tab) ────────────────────
+export const extraProducts: Product[] = [
+  {
+    id: 'e1',
+    name: 'Men cap girolle twill imprimé',
+    price: 80,
+    images: ['/assets/extra/cap.png'],
+    colors: ['#b5d6db', '#bef1da', '#38554f', '#f8f2c2', '#bbbbbb'],
+    matchScore: 70,
+  },
+  {
+    id: 'e2',
+    name: 'Sunglasses',
+    price: 120,
+    images: ['/assets/extra/Glasses.png'],
+    colors: ['#c8c8c8', '#1a1a1a', '#8b7355'],
+    matchScore: 68,
+  },
+  {
+    id: 'e3',
+    name: 'Bag',
+    price: 95,
+    images: ['/assets/extra/bag.png'],
+    colors: ['#1a1a1a', '#8b6914', '#c8c8c8'],
+    matchScore: 65,
+  },
+  {
+    id: 'e4',
+    name: 'Polo',
+    price: 110,
+    images: ['/assets/extra/polo.png'],
+    colors: ['#ffffff', '#082415', '#c8a96e'],
+    matchScore: 62,
+  },
+  {
+    id: 'e5',
+    name: 'Sneakers',
+    price: 150,
+    images: ['/assets/extra/shoes.png'],
+    colors: ['#f5f5f5', '#1a1a1a', '#8b7355'],
+    matchScore: 60,
+  },
+]
+
+// ── Selection assets ──────────────────────────────────
+const p1imgs = ['/assets/selection/p1/main.png', '/assets/selection/p1/small-1.png', '/assets/selection/p1/small-2.png', '/assets/selection/p1/small-3.png', '/assets/selection/p1/small-4.png', '/assets/selection/p1/small-5.png']
+const p2imgs = ['/assets/selection/p2/main.png', '/assets/selection/p2/small-1.png', '/assets/selection/p2/small-2.png', '/assets/selection/p2/small-3.png', '/assets/selection/p2/small-4.png']
+const p3imgs = ['/assets/selection/p3/main.png', '/assets/selection/p3/small-1.png', '/assets/selection/p3/small-2.png', '/assets/selection/p3/small-3.png', '/assets/selection/p3/small-4.png', '/assets/selection/p3/small-5.png']
+const p4imgs = ['/assets/selection/p4/main.png', '/assets/selection/p4/small-1.png', '/assets/selection/p4/small-2.png', '/assets/selection/p4/small-3.png', '/assets/selection/p4/small-4.png']
+
 export const allProducts: Product[] = [
-  // ── Selected gifts (high match score) ────────────────
+  // ── Selected gifts (4 products) ───────────────────────
   {
     id: 'p1',
-    name: 'Essential Crewneck',
+    name: 'Sweatshirt loose fit Petit Piqué',
     price: 89,
-    images: [SW.a, SW.b, SW.c, SW.d],
-    colors: ['#1a1a1a', '#f5f5f5', '#3b5c8c', '#8c3b3b'],
+    images: p1imgs,
+    colors: ['#1a1a1a', '#f5f5f5', '#3b5c8c', '#8c3b3b', '#082415'],
     matchScore: 95,
   },
   {
     id: 'p2',
-    name: 'Classic Polo',
-    price: 120,
-    images: [PO.a, PO.b, PO.c],
-    colors: ['#ffffff', '#082415', '#c8a96e', '#4a7c59'],
+    name: 'Water-repellent hooded puffer jacket',
+    price: 280,
+    images: p2imgs,
+    colors: ['#1a1a1a', '#2a3d2e', '#6b6b6b', '#c8a96e'],
     matchScore: 92,
   },
   {
     id: 'p3',
-    name: 'Field Jacket',
-    price: 280,
-    images: [JA.a, JA.b, JA.c, JA.d],
-    colors: ['#5c4a2a', '#2a3d2e', '#6b6b6b', '#1a1a1a'],
-    matchScore: 88,
-  },
-  {
-    id: 'p4',
-    name: 'Tapered Chino',
-    price: 150,
-    images: [PA.a, PA.b, PA.c],
-    colors: ['#c8b89a', '#4a4a4a', '#1a1a1a', '#8c7c6c'],
-    matchScore: 85,
-  },
-  {
-    id: 'p5',
-    name: 'Premium Hoodie',
-    price: 135,
-    images: [SW.b, SW.c, SW.d, SW.e],
-    colors: ['#082415', '#3a3a3a', '#c0c0c0', '#8b4513'],
+    name: 'Polo Lacoste L.12.21 classic fit',
+    price: 120,
+    images: p3imgs,
+    colors: ['#ffffff', '#082415', '#c8a96e', '#4a7c59', '#8b0000'],
     matchScore: 90,
   },
   {
-    id: 'p6',
-    name: 'Slim Fit Polo',
-    price: 110,
-    images: [PO.b, PO.c, PO.d, PO.e],
-    colors: ['#ffffff', '#add8e6', '#ffb6c1', '#90ee90'],
-    matchScore: 82,
-  },
-  {
-    id: 'p7',
-    name: 'Bomber Jacket',
-    price: 320,
-    images: [JA.b, JA.c, JA.f],
-    colors: ['#1a1a1a', '#2f4f4f', '#8b6914'],
-    matchScore: 87,
-  },
-  {
-    id: 'p8',
-    name: 'Straight Leg Pant',
-    price: 175,
-    images: [PA.b, PA.c, PA.d],
-    colors: ['#1a1a1a', '#f5f5dc', '#4682b4', '#8b4513'],
-    matchScore: 78,
+    id: 'p4',
+    name: 'Pants Kaki men',
+    price: 150,
+    images: p4imgs,
+    colors: ['#c8b89a', '#4a4a4a', '#1a1a1a', '#8c7c6c'],
+    matchScore: 88,
   },
   // ── More gifts ───────────────────────────────────────
   {

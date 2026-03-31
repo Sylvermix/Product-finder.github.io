@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react'
+import { useState, useRef } from 'react'
 import type { Product } from '../types'
 import styles from './WheelCarousel.module.css'
 
@@ -6,71 +6,126 @@ interface WheelCarouselProps {
   products: Product[]
 }
 
-function itemStyle(offset: number): React.CSSProperties {
-  const abs = Math.abs(offset)
-  if (abs > 2) return { display: 'none' }
+const ANGLE_STEP    = 0.72   // radians between adjacent items
+const DRAG_RATIO    = 0.009  // radians per pixel dragged
+const FRICTION      = 0.87   // velocity decay per frame (inertia)
 
-  const xPercent = offset * 56        // % shift per slot
-  const scale = abs === 0 ? 1 : abs === 1 ? 0.74 : 0.54
-  const opacity = abs === 0 ? 1 : abs === 1 ? 0.65 : 0.28
-  const rotateY = offset * -13        // degrees
-  const zIndex = 3 - abs
-
+/** Position each item on the arc using sin/cos — true wheel geometry */
+function computeStyle(angle: number): React.CSSProperties | null {
+  if (Math.abs(angle) > ANGLE_STEP * 2.3) return null
+  const cos  = Math.cos(angle)
+  const sin  = Math.sin(angle)
+  const norm = Math.max(0, cos)
   return {
-    transform: `translateX(calc(-50% + ${xPercent}%)) scale(${scale}) rotateY(${rotateY}deg)`,
-    opacity,
-    zIndex,
-    transition: 'transform 0.38s cubic-bezier(0.34, 1.2, 0.64, 1), opacity 0.38s ease',
+    transform: `translateX(calc(-50% + ${sin * 54}%)) translateY(${(1 - cos) * -55}px) scale(${0.35 + 0.83 * Math.pow(norm, 3)})`,
+    opacity:   0.3 + 0.7 * norm,
+    zIndex:    Math.round(norm * 10),
   }
 }
 
 export function WheelCarousel({ products }: WheelCarouselProps) {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [liked, setLiked] = useState<Set<string>>(new Set())
-  const isDragging = useRef(false)
-  const startX = useRef(0)
+  const [rotation, setRotation] = useState(0)   // continuous wheel angle (radians)
+  const [liked,    setLiked]    = useState<Set<string>>(new Set())
+  const [snapping, setSnapping] = useState(false)
 
+  const isDragging = useRef(false)
+  const startX     = useRef(0)
+  const startRot   = useRef(0)
+  const velRef     = useRef(0)
+  const lastX      = useRef(0)
+  const rafRef     = useRef<number | null>(null)
+
+  const minRot = -(products.length - 1) * ANGLE_STEP
+
+  function clamp(r: number) { return Math.max(minRot, Math.min(0, r)) }
+  function snapTarget(r: number) {
+    const i = Math.max(0, Math.min(products.length - 1, Math.round(-r / ANGLE_STEP)))
+    return -i * ANGLE_STEP
+  }
+
+  const activeIndex = Math.max(0, Math.min(products.length - 1, Math.round(-rotation / ANGLE_STEP)))
   const active = products[activeIndex]
 
-  const handlePointerDown = useCallback((e: React.PointerEvent) => {
-    isDragging.current = true
-    startX.current = e.clientX
-    e.currentTarget.setPointerCapture(e.pointerId)
-  }, [])
+  function stop() {
+    if (rafRef.current !== null) { cancelAnimationFrame(rafRef.current); rafRef.current = null }
+  }
 
-  const handlePointerUp = useCallback((e: React.PointerEvent) => {
+  function handlePointerDown(e: React.PointerEvent) {
+    stop()
+    setSnapping(false)
+    isDragging.current = true
+    startX.current  = e.clientX
+    lastX.current   = e.clientX
+    startRot.current = rotation
+    velRef.current  = 0
+    e.currentTarget.setPointerCapture(e.pointerId)
+  }
+
+  function handlePointerMove(e: React.PointerEvent) {
+    if (!isDragging.current) return
+    velRef.current = e.clientX - lastX.current
+    lastX.current  = e.clientX
+    setRotation(clamp(startRot.current - (e.clientX - startX.current) * DRAG_RATIO))
+  }
+
+  function handlePointerUp() {
     if (!isDragging.current) return
     isDragging.current = false
-    const delta = e.clientX - startX.current
-    if (delta < -50) setActiveIndex(i => Math.min(i + 1, products.length - 1))
-    else if (delta > 50) setActiveIndex(i => Math.max(i - 1, 0))
-  }, [products.length])
 
-  const toggleLike = useCallback((id: string) => {
+    let vel = -velRef.current * DRAG_RATIO   // initial angular velocity
+
+    const spin = () => {
+      vel *= FRICTION
+      if (Math.abs(vel) < 0.003) {
+        setSnapping(true)
+        setRotation(r => snapTarget(r))
+        rafRef.current = null
+        return
+      }
+      setRotation(r => {
+        const next = r + vel
+        if (next > 0 || next < minRot) { vel = 0; return clamp(next) }
+        return next
+      })
+      rafRef.current = requestAnimationFrame(spin)
+    }
+    rafRef.current = requestAnimationFrame(spin)
+  }
+
+  function toggleLike(id: string) {
     setLiked(prev => {
       const next = new Set(prev)
-      if (next.has(id)) next.delete(id)
-      else next.add(id)
+      next.has(id) ? next.delete(id) : next.add(id)
       return next
     })
-  }, [])
+  }
 
   if (!active) return null
 
   return (
     <div className={styles.root}>
-      {/* 3-D carousel track */}
       <div
         className={styles.carousel}
         onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerCancel={handlePointerUp}
       >
         {products.map((product, i) => {
-          const offset = i - activeIndex
-          if (Math.abs(offset) > 2) return null
+          const angle = i * ANGLE_STEP + rotation
+          const s = computeStyle(angle)
+          if (!s) return null
           return (
-            <div key={product.id} className={styles.item} style={itemStyle(offset)}>
+            <div
+              key={product.id}
+              className={styles.item}
+              style={{
+                ...s,
+                transition: snapping
+                  ? 'transform 0.4s cubic-bezier(0.34,1.1,0.64,1), opacity 0.4s ease'
+                  : 'none',
+              }}
+            >
               <img
                 src={product.images[0]}
                 alt={product.name}

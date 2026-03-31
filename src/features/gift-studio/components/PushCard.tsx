@@ -1,26 +1,25 @@
 import { Button } from '@components/Button'
-import { allProducts } from '../data/products'
 import styles from './PushCard.module.css'
+
+const GRID_IMAGES = Array.from({ length: 13 }, (_, i) => `/assets/landing/image-${i}.png`)
 
 interface PushCardProps {
   onStart: () => void
 }
 
 export function PushCard({ onStart }: PushCardProps) {
-  const gridProducts = allProducts.slice(0, 12)
-
   return (
     <div className={styles.root}>
       <div className={styles.grid}>
-        {gridProducts.map((product, i) => (
+        {GRID_IMAGES.slice(0, 12).map((src, i) => (
           <div
-            key={product.id}
+            key={i}
             className={styles.cell}
             style={{ '--i': i } as React.CSSProperties}
           >
             <img
-              src={product.images[0]}
-              alt={product.name}
+              src={src}
+              alt=""
               className={styles.img}
               loading="lazy"
             />

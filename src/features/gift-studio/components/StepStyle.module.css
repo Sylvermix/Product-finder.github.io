@@ -5,10 +5,9 @@
 /* ── Style horizontal scroll ── */
 .styleTrack {
   display: flex;
-  gap: var(--spacing-3);
+  gap: 40px;
   overflow-x: auto;
-  padding: 0 var(--spacing-5) var(--spacing-5);
-  scroll-snap-type: x mandatory;
+  padding: 0 24px 20px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -18,29 +17,30 @@
 }
 
 .styleCard {
-  flex: 0 0 54vw;
-  max-width: 210px;
+  flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  scroll-snap-align: start;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  opacity: 0.55;
+  transition: opacity 0.2s ease;
+  opacity: 1;
   text-align: center;
 }
 
-.styleCard.styleSelected,
-.styleCard:hover {
-  opacity: 1;
-  transform: scale(1.02);
+.styleCard.styleUnselected {
+  opacity: 0.55;
 }
 
 .styleImgWrap {
-  width: 100%;
-  aspect-ratio: 2 / 3;
+  width: 120px;
+  height: 387px;
   overflow: hidden;
   background: none;
+  position: relative;
 }
 
 .styleImg {
@@ -52,24 +52,27 @@
 
 .styleLabel {
   display: block;
-  padding: var(--spacing-2) 0;
-  font-size: var(--font-size-body-sm);
-  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-regular);
   color: var(--color-fg-primary);
   font-family: var(--font-family);
+  line-height: 16px;
 }
 
 /* ── Interests ── */
 .interests {
   padding: 0 var(--spacing-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
 }
 
 .interestsTitle {
   font-size: var(--font-size-h4);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-fg-primary);
-  margin: 0 0 var(--spacing-4) 0;
-  text-transform: uppercase;
+  margin: 0;
+  line-height: 25px;
 }
 
 .tags {

@@ -23,25 +23,26 @@ const STEP_TITLES = [
   'Who are you shopping for?',
   'What product are you looking for?',
   'How would you define his style?',
-  'What occasion are you shopping for?',
+  "What's the occasion?",
   'How much do you want to spend?',
 ]
 
-const U = 'https://images.unsplash.com/photo-'
-const P = '?w=400&h=520&fit=crop&auto=format&q=80'
-
 const STEP_1_OPTIONS = [
-  { id: 'woman',  label: 'Woman',  image: `${U}1531746020798-e6953c6e8e04${P}` },
-  { id: 'man',    label: 'Man',    image: `${U}1519085360753-af0119f7cbe7${P}` },
-  { id: 'kids',   label: 'Kids',   image: `${U}1503454537195-1dcabb73ffb9${P}` },
-  { id: 'couple', label: 'Couple', image: `${U}1522673607200-164d1b6ce486${P}` },
+  { id: 'woman',  label: 'Woman',  image: '/assets/gender/Women.png' },
+  { id: 'man',    label: 'Man',    image: '/assets/gender/Man.png' },
+  { id: 'kids',   label: 'Kids',   image: '/assets/gender/Kids.png' },
+  { id: 'couple', label: 'Couple', image: '/assets/gender/Couple.png' },
 ]
 
 const STEP_2_OPTIONS = [
-  { id: 'sweatshirts', label: 'Sweatshirts',       image: `${U}1515886657613-9f3515b0c78f${P}` },
-  { id: 'polos',       label: 'Polos and t-shirts', image: `${U}1581655353564-df123a1eb820${P}` },
-  { id: 'jackets',     label: 'Jackets',            image: `${U}1551028719-00167b16eac5${P}` },
-  { id: 'pants',       label: 'Pants',              image: `${U}1624378439575-d8705ad7ae80${P}` },
+  { id: 'sweatshirts',  label: 'Sweatshirts',        image: '/assets/product/Sweatshirts.png' },
+  { id: 'polos',        label: 'Polos and t-shirts', image: '/assets/product/Polos.png' },
+  { id: 'jackets',      label: 'Jackets',            image: '/assets/product/Jackets.png' },
+  { id: 'pants',        label: 'Pants',              image: '/assets/product/Pants.png' },
+  { id: 'accessories',  label: 'Accessories',        image: '/assets/product/Accessories.png' },
+  { id: 'bags',         label: 'Bags',               image: '/assets/product/Bags.png' },
+  { id: 'caps',         label: 'Caps',               image: '/assets/product/Caps.png' },
+  { id: 'sneakers',     label: 'Sneakers',           image: '/assets/product/Sneakers.png' },
 ]
 
 export function QuizShell({
