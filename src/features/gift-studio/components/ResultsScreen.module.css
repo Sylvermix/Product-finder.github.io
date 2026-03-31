@@ -73,7 +73,6 @@
   color: var(--color-fg-primary);
   line-height: 25px;
   margin: 0;
-  text-transform: uppercase;
 }
 
 /* ── Tabs ── */

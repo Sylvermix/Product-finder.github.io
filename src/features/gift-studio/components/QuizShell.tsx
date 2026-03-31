@@ -20,11 +20,11 @@ interface QuizShellProps {
 }
 
 const STEP_TITLES = [
-  'WHO ARE YOU SHOPPING FOR?',
-  'WHAT PRODUCT ARE YOU LOOKING FOR?',
-  'HOW WOULD YOU DEFINE HIS STYLE?',
-  'WHAT OCCASION ARE YOU SHOPPING FOR?',
-  'HOW MUCH DO YOU WANT TO SPEND?',
+  'Who are you shopping for?',
+  'What product are you looking for?',
+  'How would you define his style?',
+  'What occasion are you shopping for?',
+  'How much do you want to spend?',
 ]
 
 const U = 'https://images.unsplash.com/photo-'

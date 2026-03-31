@@ -28,7 +28,7 @@ export function ResultsScreen({ results, onClose }: ResultsScreenProps) {
       </header>
 
       <div className={styles.hero}>
-        <h1 className={styles.heroTitle}>WE FOUND PERFECT GIFTS FOR YOU!</h1>
+        <h1 className={styles.heroTitle}>We found perfect gifts for you!</h1>
       </div>
 
       <div className={styles.tabBar}>

@@ -64,7 +64,6 @@
   font-weight: var(--font-weight-semibold);
   color: var(--color-fg-primary);
   line-height: 25px;
-  text-transform: uppercase;
 }
 
 /* ── Step content ── */
