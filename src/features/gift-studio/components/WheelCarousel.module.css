@@ -6,7 +6,7 @@
 /* ── 3-D Carousel ── */
 .carousel {
   position: relative;
-  height: 380px;
+  height: 357px;
   overflow: hidden;
   cursor: grab;
   perspective: 900px;
