@@ -40,7 +40,7 @@
   width: 100%;
   aspect-ratio: 2 / 3;
   overflow: hidden;
-  background: var(--color-muted);
+  background: none;
 }
 
 .styleImg {

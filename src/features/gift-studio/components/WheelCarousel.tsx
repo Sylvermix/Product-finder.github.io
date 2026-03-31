@@ -1,5 +1,4 @@
 import { useState, useRef, useCallback } from 'react'
-import { Button } from '@components/Button'
 import type { Product } from '../types'
 import styles from './WheelCarousel.module.css'
 
@@ -106,39 +105,29 @@ export function WheelCarousel({ products }: WheelCarouselProps) {
 
       {/* Product info */}
       <div className={styles.info}>
-        <div className={styles.infoRow}>
-          <div className={styles.infoLeft}>
-            <h3 className={styles.name}>{active.name}</h3>
-            <div className={styles.colorRow}>
-              {active.colors.slice(0, 4).map(c => (
-                <span key={c} className={styles.swatch} style={{ background: c }} />
-              ))}
-              {active.colors.length > 4 && (
-                <span className={styles.moreColors}>+{active.colors.length - 4}</span>
-              )}
-            </div>
-            <button className={styles.descLink}>Full Description &nbsp;›</button>
-          </div>
-          <div className={styles.priceCol}>
-            <span className={styles.price}>{active.price},00 €</span>
-            <button
-              className={`${styles.heart} ${liked.has(active.id) ? styles.heartLiked : ''}`}
-              onClick={() => toggleLike(active.id)}
-              aria-label="Add to wishlist"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill={liked.has(active.id) ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-              </svg>
-            </button>
+        <div className={styles.infoLeft}>
+          <h3 className={styles.name}>{active.name}</h3>
+          <div className={styles.colorRow}>
+            {active.colors.slice(0, 4).map(c => (
+              <span key={c} className={styles.swatch} style={{ background: c }} />
+            ))}
+            {active.colors.length > 4 && (
+              <span className={styles.moreColors}>+{active.colors.length - 4}</span>
+            )}
           </div>
         </div>
-        <Button
-          variant="primary"
-          fullWidth
-          style={{ height: '52px', fontSize: '13px', letterSpacing: '0.06em', borderRadius: '0' }}
-        >
-          SELECT YOUR SIZE &nbsp;›
-        </Button>
+        <div className={styles.priceCol}>
+          <span className={styles.price}>{active.price},00 €</span>
+          <button
+            className={`${styles.heart} ${liked.has(active.id) ? styles.heartLiked : ''}`}
+            onClick={() => toggleLike(active.id)}
+            aria-label="Add to wishlist"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill={liked.has(active.id) ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   )

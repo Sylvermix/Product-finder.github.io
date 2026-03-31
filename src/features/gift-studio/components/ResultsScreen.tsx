@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Button } from '@components/Button'
 import type { Product } from '../types'
 import { ProductListItem } from './ProductListItem'
 import { WheelCarousel } from './WheelCarousel'
@@ -46,21 +47,6 @@ export function ResultsScreen({ results, onClose }: ResultsScreenProps) {
       </div>
 
       <div className={styles.content}>
-        <div className={styles.badges}>
-          <span className={styles.badge}>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 8h14M5 8a2 2 0 1 0 0-4h-1M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8M14 8V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v4" />
-            </svg>
-            Delivered in 3 days
-          </span>
-          <span className={styles.badge}>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="1 4 1 10 7 10" />
-              <path d="M3.51 15a9 9 0 1 0 .49-4.9" />
-            </svg>
-            30 Days to return
-          </span>
-        </div>
         {activeTab === 'selected' ? (
           <div key="selected">
             {results.selected.map((product, i) => (
@@ -73,6 +59,17 @@ export function ResultsScreen({ results, onClose }: ResultsScreenProps) {
           </div>
         )}
       </div>
+
+      {activeTab === 'more' && (
+        <div className={styles.carouselFooter}>
+          <Button
+            variant="primary"
+            style={{ width: '310px', height: '48px', fontSize: '13px', letterSpacing: '0.06em', borderRadius: '0' }}
+          >
+            SELECT YOUR SIZE &nbsp;›
+          </Button>
+        </div>
+      )}
     </div>
   )
 }
