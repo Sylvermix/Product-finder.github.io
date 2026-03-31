@@ -46,7 +46,7 @@ export function ResultsScreen({ results, onClose }: ResultsScreenProps) {
         </button>
       </div>
 
-      <div className={styles.content}>
+      <div className={`${styles.content} ${activeTab === 'more' ? styles.contentLocked : ''}`}>
         {activeTab === 'selected' ? (
           <div key="selected">
             {results.selected.map((product, i) => (

@@ -129,3 +129,7 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
+
+.contentLocked {
+  overflow-y: hidden;
+}
