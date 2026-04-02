@@ -40,7 +40,7 @@ export function PushStack({ items, scrollerRef }: PushStackProps) {
     <div
       ref={wrapperRef}
       className={styles.wrapper}
-      style={{ height: `calc(${items.length} * 100dvh)` }}
+      style={{ height: `calc(${items.length + 1} * 100dvh)` }}
     >
       <div className={styles.sticky}>
         {items.map((item, i) => (

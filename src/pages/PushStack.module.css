@@ -4,8 +4,9 @@
 
 .sticky {
   position: sticky;
-  top: 56px;
-  height: calc(100dvh - 56px);
+  top: 0;
+  height: 100dvh;
+  z-index: 4;
   overflow: hidden;
 }
 
