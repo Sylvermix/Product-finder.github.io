@@ -1,0 +1,274 @@
+/* ── Page wrapper ── */
+.page {
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100dvh;
+  overflow: clip;
+}
+
+/* ── Nav ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.navLogo {
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.navLogo img {
+  width: 36px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
+}
+
+.navIcons {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-fg-primary);
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  height: 700px;
+  overflow: hidden;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.heroContent {
+  position: absolute;
+  bottom: 64px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.heroTitle {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 24px;
+  background: #fff;
+  border: 1px solid var(--color-fg-primary);
+  font-size: var(--font-size-label-sm);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-family);
+  color: #000;
+  cursor: pointer;
+  padding: 0 24px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 24px;
+  background: var(--color-fg-primary);
+  border: none;
+  font-size: var(--font-size-label-sm);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-family);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ── Section ── */
+.section {
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sectionTitle {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg-primary);
+  margin: 0;
+  line-height: 25px;
+}
+
+/* ── Horizontal scroll strip ── */
+.hScroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.hScroll::-webkit-scrollbar { display: none; }
+
+/* Editorial tile */
+.editTile {
+  flex: 0 0 240px;
+  position: relative;
+  overflow: hidden;
+}
+
+.editTile img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+}
+
+.editTileTitle {
+  position: absolute;
+  bottom: 16px;
+  left: 12px;
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: #fff;
+  margin: 0;
+  line-height: 25px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+/* ── Story section ── */
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.storyImg {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.storyText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 16px 24px;
+}
+
+.storyTitle {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg-primary);
+  margin: 0;
+  line-height: 25px;
+}
+
+.storyBody {
+  font-size: 16px;
+  color: var(--color-fg-primary);
+  margin: 0;
+  line-height: 24px;
+}
+
+
+/* ── Brand section ── */
+.brand {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 48px 0;
+}
+
+.brandHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.brandTitle {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg-primary);
+  margin: 0;
+}
+
+.brandImg {
+  width: 100%;
+  height: 546px;
+  object-fit: cover;
+  display: block;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 16px;
+}
+
+.brandOverline {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-fg-primary);
+  margin: 0;
+}
+
+.brandHeading {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg-primary);
+  margin: 0;
+  line-height: 25px;
+}
+
+.brandBody {
+  font-size: 16px;
+  color: var(--color-fg-primary);
+  margin: 0;
+  line-height: 24px;
+}
+
+/* ── Gift studio embed ── */
+.giftSection {
+  position: relative;
+  background: #f5f5f5;
+  padding: 0;
+  overflow: clip;
+}
