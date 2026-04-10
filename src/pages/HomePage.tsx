@@ -13,8 +13,8 @@ const imgPush1      = 'https://www.figma.com/api/mcp/asset/768f612c-b6bd-4f5a-bc
 const imgPush2      = 'https://www.figma.com/api/mcp/asset/c50300ef-d772-4e1d-8bab-17f2c8ae376a'
 const imgPush3      = 'https://www.figma.com/api/mcp/asset/e2a8e953-5fa3-4b2d-a4dd-b88ca0df2339'
 const imgBrandPhoto = 'https://www.figma.com/api/mcp/asset/573e7dd6-3e79-401c-8970-5020bebd92e8'
-const imgCrocodile  = 'https://www.figma.com/api/mcp/asset/66a5223a-87ed-4f24-8558-decd27f4c48e'
-const imgLogo       = 'https://www.figma.com/api/mcp/asset/6aaf526b-b254-4271-a6f5-40e41e2a4993'
+const imgCrocodile  = 'https://www.figma.com/api/mcp/asset/3364f508-750f-40e6-ac98-b24a399e3b12'
+const imgLogo       = 'https://www.figma.com/api/mcp/asset/c7ddb320-e86c-4ed0-9f4c-76a401195287'
 
 interface HomePageProps {
   onOpenGiftStudio: () => void
