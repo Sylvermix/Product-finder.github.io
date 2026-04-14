@@ -3,16 +3,19 @@ import { PushStack } from './PushStack'
 import { SnowflakeCanvas } from './SnowflakeCanvas'
 import styles from './HomePage.module.css'
 
-// Figma campaign images (valid 7 days from generation)
-const imgHero       = 'https://www.figma.com/api/mcp/asset/b0633178-6b33-4a6e-b77a-d5c27e2b23dc'
-const imgEdit1      = 'https://www.figma.com/api/mcp/asset/0fbf161e-3492-462f-bd0c-2cc1f5d02cf3'
-const imgEdit2      = 'https://www.figma.com/api/mcp/asset/a75db12e-1e17-442d-b513-ffb4fd1d8cc8'
-const imgEdit3      = 'https://www.figma.com/api/mcp/asset/4487032b-5b0d-40ab-9601-39ddb35c4c8b'
-const imgSale       = 'https://www.figma.com/api/mcp/asset/432f8454-46e2-4dc3-a75e-e19867db6700'
-const imgPush1      = 'https://www.figma.com/api/mcp/asset/768f612c-b6bd-4f5a-bcd2-b6d1f41698b5'
-const imgPush2      = 'https://www.figma.com/api/mcp/asset/c50300ef-d772-4e1d-8bab-17f2c8ae376a'
-const imgPush3      = 'https://www.figma.com/api/mcp/asset/e2a8e953-5fa3-4b2d-a4dd-b88ca0df2339'
-const imgBrandPhoto = 'https://www.figma.com/api/mcp/asset/573e7dd6-3e79-401c-8970-5020bebd92e8'
+// Local assets
+const imgHero       = '/assets/Home/hero.png'
+const imgEdit1      = '/assets/Home/seasonal 1.png'
+const imgEdit2      = '/assets/Home/seasonal 2.png'
+const imgEdit3      = '/assets/Home/seasonal 3.png'
+const imgSale       = '/assets/Home/sale.png'
+const imgBrandPhoto = '/assets/Home/we are lacoste.png'
+// Push stack slides
+const imgRolex      = '/assets/Home/rolex.png'
+const imgArrivals   = '/assets/Home/season arrivals.png'
+const imgIconic     = '/assets/Home/iconic.png'
+const imgLeather    = '/assets/Home/Leather.png'
+// Figma assets (logo/crocodile — no local replacement)
 const imgCrocodile  = 'https://www.figma.com/api/mcp/asset/3364f508-750f-40e6-ac98-b24a399e3b12'
 const imgLogo       = 'https://www.figma.com/api/mcp/asset/c7ddb320-e86c-4ed0-9f4c-76a401195287'
 
@@ -114,10 +117,10 @@ export function HomePage({ onOpenGiftStudio, scrollerRef }: HomePageProps) {
       <PushStack
         scrollerRef={scrollerRef}
         items={[
-          { img: imgSale,  title: 'Rolex Paris Masters' },
-          { img: imgPush3, title: 'New season arrivals' },
-          { img: imgPush2, title: 'Iconic woven shirts' },
-          { img: imgPush1, title: 'Leather goods' },
+          { img: imgRolex,    title: 'Rolex Paris Masters' },
+          { img: imgArrivals, title: 'New season arrivals' },
+          { img: imgIconic,   title: 'Iconic woven shirts' },
+          { img: imgLeather,  title: 'Leather goods' },
         ]}
       />
 
