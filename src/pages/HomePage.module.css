@@ -31,6 +31,44 @@
   height: 24px;
   display: block;
   object-fit: contain;
+  transform-origin: 80% 60%;
+  animation: crocodileWalkIn 900ms cubic-bezier(0.34, 1.56, 0.64, 1) 200ms both;
+  transition: transform 300ms ease;
+}
+
+.navLogo:hover img {
+  animation: crocodileWag 700ms ease-in-out;
+}
+
+@keyframes crocodileWalkIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-12px) rotate(-8deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(2px) rotate(3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@keyframes crocodileWag {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-6deg); }
+  50% { transform: rotate(4deg); }
+  75% { transform: rotate(-3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navLogo img {
+    animation: none;
+  }
+  .navLogo:hover img {
+    animation: none;
+  }
 }
 
 .navIcons {
