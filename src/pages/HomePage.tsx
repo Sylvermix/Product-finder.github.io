@@ -15,9 +15,8 @@ const imgRolex      = '/assets/Home/rolex.png'
 const imgArrivals   = '/assets/Home/season arrivals.png'
 const imgIconic     = '/assets/Home/iconic.png'
 const imgLeather    = '/assets/Home/Leather.png'
-// Figma assets (logo/crocodile — no local replacement)
-const imgCrocodile  = 'https://www.figma.com/api/mcp/asset/3364f508-750f-40e6-ac98-b24a399e3b12'
-const imgLogo       = 'https://www.figma.com/api/mcp/asset/c7ddb320-e86c-4ed0-9f4c-76a401195287'
+const imgCrocodile  = '/assets/logo.svg'
+const imgLogo       = '/assets/logo.svg'
 
 interface HomePageProps {
   onOpenGiftStudio: () => void
